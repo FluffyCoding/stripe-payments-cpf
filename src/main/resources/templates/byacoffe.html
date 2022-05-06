@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+    <link th:href="@{/css/pstyles.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <!-- code here -->
+    <div class="card">
+        <div class="card-image">
+            <h2 class="card-heading" style="font-family: 'Oleo Script',serif">
+                Buy Me A Cup Of Coffee!
+                <small style="font-family: DM Sans, sans-serif; font-size:large;">
+                    Please Enter Detail here.</small>
+            </h2>
+        </div>
+        <form id="checkout" method="post" th:action="@{/}" th:object="${checkoutForm}">
+            <div class="input">
+                <input class="input-field" required th:field="*{fullName}" type="text" id="fullName"/>
+                <label class="input-label">Full name</label>
+            </div>
+            <p class="errors" th:errors="*{fullName}" th:if="${#fields.hasErrors('fullName')}"></p>
+            <div class="input">
+                <input class="input-field" required th:field="*{email}" type="email" id="email"/>
+                <label class="input-label">Email</label>
+            </div>
+            <p class="errors" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></p>
+            <div class="input">
+                <input class="input-field" required th:field="*{remarks}" type="text" id="remarks"/>
+                <label class="input-label">Remarks</label>
+                <p class="errors" th:errors="*{remarks}" th:if="${#fields.hasErrors('remarks')}"></p>
+            </div>
+            <div class="input">
+                <input th:field="*{amount}" class="input-field" required style="text-align: center; font-weight: bolder" id="amount" type="text"/>
+                <label class="input-label">Amount</label>
+            </div>
+            <p class="errors" th:errors="*{amount}" th:if="${#fields.hasErrors('amount')}"></p>
+            <div class="card-info">
+                <button class="action-button" type="submit">Buy ☕</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+        // document.getElementById('fullName').value = "Faisal Shahzad";
+        // document.getElementById('email').value = "f.shahzad@hotmail.com";
+        // document.getElementById('remarks').value = "Have A Cup Of Coffee";
+        // document.getElementById('amount').value = 5;
+
+
+
+</script>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: stripe-payment-server
+  datasource:
+    url: jdbc:h2:mem:stripe
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+
+stripe-api-key: ${STRIPE_PRIVATE_KEY}
+stripe-webhook-secret: ${WEB_HOOK_SECRET_KEY}
+stripe-public-key: pk_test_51KtdYXDxaIGBPlwATBmUKPEtsdfLqMKOUm5qTVtRo53HXpXZMureuTK8gQMFY7v1gYbbRPoqaXuBOmxHr1OxqCoQ00hpDpKC0a
+
+
+#

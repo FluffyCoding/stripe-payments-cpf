@@ -1,0 +1,19 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: stripe-payment-gateway
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/${DATABASE}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+stripe-api-key: ${STRIPE_PRIVATE_KEY}
+stripe-webhook-secret: ${WEB_HOOK_SECRET_KEY}
+stripe-public-key: pk_test_51KtdYXDxaIGBPlwATBmUKPEtsdfLqMKOUm5qTVtRo53HXpXZMureuTK8gQMFY7v1gYbbRPoqaXuBOmxHr1OxqCoQ00hpDpKC0a
