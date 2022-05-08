@@ -1,10 +1,15 @@
 package com.unity.stripe.payments.entity;
 
-import lombok.*;
+import com.unity.stripe.payments.validators.UniqueEmail;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-import java.util.Set;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -23,15 +28,19 @@ public class Customer {
     @Column(name = "full_name", nullable = true)
     private String fullName;
 
-    @NotEmpty(message = "Must be a valid Email Address")
-    @Email
-    @Column(name = "email", nullable = true, unique = true)
+    @NotNull
+    @UniqueEmail
+    @Column(name = "email")
     private String email;
 
     @Transient
     @NotEmpty
     @NotNull
     private String password;
+
+    @NotNull
+    @NotEmpty
+    private String phone;
 
     @Column(name = "address")
     private String address;
@@ -44,11 +53,6 @@ public class Customer {
 
     @Column(name = "postal_code")
     private String postalCode;
-
-    @NotNull
-    @NotEmpty
-    //@Pattern(regexp = "([0-9\\-]+)", message = "Must Be A Valid Phone Number")
-    private String phone;
 
 
 //    @OneToMany(mappedBy = "customer", orphanRemoval = true, fetch = FetchType.LAZY)

@@ -19,7 +19,19 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
     }
 
     @Override
-    public Customer saveCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public void saveCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
+
+    @Override
+    public Boolean isEmailExist(String email) {
+
+        var returnValue = customerRepository.findCustomerByEmail(email).orElse(null);
+        System.out.println("Unique Value Result "+ email + returnValue);
+        if (returnValue != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

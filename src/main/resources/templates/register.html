@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -19,33 +19,36 @@
             <i class="fas fa-user-tie mr-2 fa-lg"></i> Customer Registration Form
         </div>
         <div class="card-body">
-            <form method="post" th:action="@{new}" th:object="${newCustomer}">
+            <form method="post" th:action="@{/register/}" th:object="${newCustomer}">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail">Email</label>
                         <input class="form-control" id="inputEmail" placeholder="example@gmail.com"
                                th:errorclass="is-invalid"
-                               th:field="${newCustomer.email}"
+                               th:field="*{email}"
                                type="email">
-                        <small style="color: darkred"
-                               th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></small>
+                        <small class="bg-text-dark"
+                               style="color: brown"
+                               th:errors="*{email}" th:if="${#fields.hasErrors('email')}">></small>
 
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword">Password</label>
-                        <input class="form-control" id="inputPassword" placeholder="Password" required
+                        <input class="form-control" id="inputPassword" placeholder="Password"
                                th:errorclass="is-invalid"
-                               th:field="${newCustomer.password}" type="password">
+                               th:field="*{password}" type="password">
                         <small style="color: darkred"
-                               th:errors="*{password}" th:if="${#fields.hasErrors('password')}"></small>
+                               th:errors="*{password}"
+                               th:if="${#fields.hasErrors('password')}"
+                        ></small>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputFullName">Full Name</label>
-                        <input class="form-control" id="inputFullName" placeholder="Full Name" required
+                        <input class="form-control" id="inputFullName" placeholder="Full Name"
                                th:errorclass="is-invalid"
-                               th:field="${newCustomer.fullName}" type="text">
+                               th:field="*{fullName}" type="text">
                         <small style="color: darkred"
                                th:errors="*{fullName}" th:if="${#fields.hasErrors('fullName')}"></small>
 
@@ -54,9 +57,8 @@
                     <div class="form-group col-md-6">
                         <label for="inputContactMobile">Contact Mobile</label>
                         <input class="form-control" id="inputContactMobile" placeholder="Mobile 0332-25469888"
-                               required
                                th:errorclass="is-invalid"
-                               th:field="${newCustomer.phone}"
+                               th:field="*{phone}"
                                type="text">
                         <small style="color: darkred"
                                th:errors="*{phone}" th:if="${#fields.hasErrors('phone')}"></small>

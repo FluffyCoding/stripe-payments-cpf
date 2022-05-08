@@ -4,9 +4,9 @@ import com.unity.stripe.payments.entity.Customer;
 
 public interface CustomerRegistrationService {
 
-    Customer saveCustomer(Customer customer);
+    void saveCustomer(Customer customer);
 
-
+        Boolean isEmailExist(String email);
 
 
 }

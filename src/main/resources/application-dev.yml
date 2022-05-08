@@ -13,6 +13,11 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
 
 stripe-api-key: ${STRIPE_PRIVATE_KEY}
 stripe-webhook-secret: ${WEB_HOOK_SECRET_KEY}

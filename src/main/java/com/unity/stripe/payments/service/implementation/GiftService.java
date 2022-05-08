@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class GiftService {
 
 
-   private final GiftRepository giftRepository;
+    private final GiftRepository giftRepository;
 
     public GiftService(GiftRepository giftRepository) {
         this.giftRepository = giftRepository;
@@ -18,4 +18,7 @@ public class GiftService {
         giftRepository.save(gift);
     }
 
+    public Gift findGiftByPaymentId(String id) {
+        return giftRepository.findGiftByTransactionId(id).orElse(null);
+    }
 }

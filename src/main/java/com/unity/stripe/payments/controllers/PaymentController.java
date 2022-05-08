@@ -2,7 +2,9 @@ package com.unity.stripe.payments.controllers;
 
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
+import com.stripe.model.checkout.Session;
 import com.stripe.param.PaymentIntentCreateParams;
+import com.stripe.param.checkout.SessionCreateParams;
 import com.unity.stripe.payments.dto.CreatePayment;
 import com.unity.stripe.payments.dto.CreatePaymentResponse;
 import com.unity.stripe.payments.service.implementation.CustomerService;
@@ -39,13 +41,14 @@ public class PaymentController {
         var customerData = customerService.findCustomerByEmail(createPayment.getEmail());
 
 
-        transactionMetadata.put("date",getCurrentDate());
+        transactionMetadata.put("date", getCurrentDate());
         transactionMetadata.put("email", customerData.getEmail());
         transactionMetadata.put("fullName", customerData.getFullName());
         transactionMetadata.put("mobile", customerData.getPhone());
         transactionMetadata.put("cartId", createPayment.getCartId());
         transactionMetadata.put("amount", createPayment.getAmount().toString());
-        transactionMetadata.put("remarks",createPayment.getRemarks());
+        transactionMetadata.put("remarks", createPayment.getRemarks());
+
 
         PaymentIntentCreateParams createParams = new PaymentIntentCreateParams.Builder()
 
@@ -71,12 +74,11 @@ public class PaymentController {
     }
 
 
-    String getCurrentDate(){
+    String getCurrentDate() {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         return dateFormat.format(date);
     }
-
 
 
 }

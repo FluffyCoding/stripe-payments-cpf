@@ -16,4 +16,11 @@ public class StripeTransactionServiceImpl implements StripeTransactionService {
     public void saveTransaction(StripeTransaction transaction) {
         transactionRepository.save(transaction);
     }
+
+    @Override
+    public void showTransaction(String id) {
+
+    }
+
+
 }

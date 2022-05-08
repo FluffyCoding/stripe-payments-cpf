@@ -9,16 +9,29 @@
           th:href="@{/webjars/font-awesome/css/all.css}">
 </head>
 <body>
-
+<nav class="navbar sticky-top navbar-light bg-light">
+    <a class="navbar-brand" href="#">Stripe Payments</a>
+    <a th:href="@{/logout}">logout</a>
+</nav>
 <div class="container mt-3">
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6 mx-auto mt-5">
+            <div class="payment">
+                <div class="payment_header">
+                    Stripe Payment Gateway
+                </div>
+                <div class="content">
+                    <p th:text="${userEmail}"></p>
+                    <h1 style="padding: 3px;">Payments infrastructure for the internet</h1>
+                    <p></p>
+                    <a th:href="@{/product/}">Go to Home</a>
+                </div>
 
-            <a th:href="@{product/}"> Click Here to Gift Store </a>
-
+            </div>
         </div>
     </div>
+</div>
 
 
 </div>
