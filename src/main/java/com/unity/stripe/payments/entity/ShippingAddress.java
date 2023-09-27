@@ -17,7 +17,7 @@ public class ShippingAddress {
 
     private String city;
 
-    private String Country;
+    private String country;
 
     private String line1;
 
