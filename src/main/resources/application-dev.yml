@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 9200
 
 spring:
   application:
@@ -18,6 +18,9 @@ spring:
         persistence:
           validation:
             mode: none
+    show-sql: true
+  thymeleaf:
+    cache: false
 
 stripe-api-key: ${STRIPE_PRIVATE_KEY}
 stripe-webhook-secret: ${WEB_HOOK_SECRET_KEY}

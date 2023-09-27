@@ -6,7 +6,7 @@ public interface CustomerRegistrationService {
 
     void saveCustomer(Customer customer);
 
-        Boolean isEmailExist(String email);
+    Boolean isEmailExist(String email);
 
 
 }
